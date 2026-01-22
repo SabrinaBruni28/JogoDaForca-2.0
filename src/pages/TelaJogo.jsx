@@ -87,7 +87,7 @@ function TelaJogo() {
         <Forca errors={errors} />
 
         {/* Palavra */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mt-5">
+        <div className="flex flex-wrap justify- items-center gap-x-6 gap-y-4 mt-5">
           {rawWord.split(/(\s|-)/).map((part, index) => {
             // espaço ou traço → quebra de grupo
             if (part === " " || part === "-") {
