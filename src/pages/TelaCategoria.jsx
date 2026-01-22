@@ -29,7 +29,7 @@ function TelaCategoria() {
     <Background>
       {/* Botão voltar no canto */}
       <Button
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/")}
         className="p-1 w-20 h-10 bg-blue-500 text-white text-xl font-bold rounded hover:bg-blue-600 border-2 border-black"
       >
         ←

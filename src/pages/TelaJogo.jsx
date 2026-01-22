@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Texto from "../components/Texto";
 import useSound from "../hooks/useSound";
+import Forca from "../components/Forca";
 
 function TelaJogo() {
   const acertoSound = useSound("acerto");
@@ -15,6 +16,7 @@ function TelaJogo() {
   const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
   const [lettersInWord, setLettersInWord] = useState([]);
+  const [errors, setErrors] = useState(0);
 
   function normalizeText(text) {
     return text
@@ -41,6 +43,7 @@ function TelaJogo() {
     if (letterInWord(letter)) {
       acertoSound.play();
     } else {
+      setErrors((prev) => prev + 1);
       erroSound.play();
     }
   }
@@ -62,18 +65,20 @@ function TelaJogo() {
   useEffect(() => {
     if (allLettersRevealed()) {
       handleWinGame();
-    } else if (allLetterSelected()) {
+    }
+    if (errors > 6) {
       handleLoseGame();
     }
   }, [lettersInWord]);
 
   return (
     <Background>
-      <div className="flex flex-col items-center justify-center space-y-20">
+      <div className="flex flex-col items-center justify-center">
         <Texto>{localStorage.getItem("categoria")}</Texto>
 
+        <Forca errors={errors} />
         {/* Palavra */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 space-x-2 justify-center items-center">
           {word.map((letter, i) => {
             // espaço ou traço vira "gap" visual
             if (letter === " " || letter === "-") {
