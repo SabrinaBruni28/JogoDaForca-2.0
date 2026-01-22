@@ -5,7 +5,7 @@ function Background({ children }) {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
 
   return (
-    <div className="relative w-screen min-h-screen bg-yellow-300 overflow-hidden">
+    <div className="relative w-screen min-h-screen bg-yellow-300 overflow-hidden p-2">
       {/* Pessoas */}
       {people.map((_, i) => (
         <PersonStanding

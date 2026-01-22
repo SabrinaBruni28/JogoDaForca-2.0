@@ -11,7 +11,7 @@ function TelaInicial() {
 
   return (
     <Background>
-      <div className="flex min-h-screen flex-col items-center justify-center space-y-40">
+      <div className="flex p-12 flex-col items-center justify-center space-y-40">
         <Title>Jogo da Forca</Title>
         <Button onClick={handleStartGame}>Iniciar Jogo</Button>
       </div>
