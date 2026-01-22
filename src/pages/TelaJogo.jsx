@@ -87,15 +87,15 @@ function TelaJogo() {
         <Forca errors={errors} />
 
         {/* Palavra */}
-        <div className="flex flex-wrap justify- items-center gap-x-6 gap-y-4 mt-5">
+        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mt-5 max-w-full">
           {rawWord.split(/(\s|-)/).map((part, index) => {
-            // espaço ou traço → quebra de grupo
+            // espaço ou traço → apenas espaçamento
             if (part === " " || part === "-") {
-              return <div key={index} className="w-12" />;
+              return <div key={index} className="w-6" />;
             }
 
             return (
-              <div key={index} className="flex gap-2">
+              <div key={index} className="flex gap-2 shrink-0">
                 {part.split("").map((letter, i) => (
                   <LetterBox
                     key={i}
