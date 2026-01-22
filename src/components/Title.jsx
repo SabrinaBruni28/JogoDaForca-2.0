@@ -1,14 +1,20 @@
-function Title(props) {
+function Title({ children, ...props }) {
   return (
     <h1
-      className="text-8xl font-extrabold text-white mb-8 p-4"
+      className="text-6xl md:text-8xl font-extrabold text-white mb-8 p-4"
       style={{
-        WebkitTextStroke: "2px black",
+        textShadow: `
+          -2px -2px 0 #000,
+           2px -2px 0 #000,
+          -2px  2px 0 #000,
+           2px  2px 0 #000
+        `,
       }}
       {...props}
     >
-      {props.children}
+      {children}
     </h1>
   );
 }
+
 export default Title;

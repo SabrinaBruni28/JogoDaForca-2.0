@@ -1,14 +1,20 @@
-function Texto(props) {
+function Texto({ children, ...props }) {
   return (
     <h2
-      className="text-4xl font-extrabold text-white"
+      className="text-2xl md:text-4xl font-extrabold text-white"
       style={{
-        WebkitTextStroke: "2px black",
+        textShadow: `
+          -1px -1px 0 #000,
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000
+        `,
       }}
       {...props}
     >
-      {props.children}
+      {children}
     </h2>
   );
 }
+
 export default Texto;
