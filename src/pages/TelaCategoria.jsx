@@ -2,7 +2,7 @@ import Background from "../components/Background";
 import Button from "../components/Button";
 import Title from "../components/Title";
 import API from "../data/API";
-import useWord from "../functions/useWordFetcher";
+import useWord from "../hooks/useWordFetcher";
 import { useNavigate } from "react-router-dom";
 
 function TelaCategoria() {
