@@ -87,11 +87,11 @@ function TelaJogo() {
         <Forca errors={errors} />
 
         {/* Palavra */}
-        <div className="flex gap-2 space-x-2 justify-center items-center">
+        <div className="flex flex-wrap gap-2 justify-center mt-5">
           {word.map((letter, i) => {
             // espaço ou traço vira "gap" visual
             if (letter === " " || letter === "-") {
-              return <div key={i} className="w-6" />;
+              return <div key={i} className="w-12" />;
             }
 
             return (
