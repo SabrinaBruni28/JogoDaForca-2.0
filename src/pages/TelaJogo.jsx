@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Texto from "../components/Texto";
 import useSound from "../hooks/useSound";
 import Forca from "../components/Forca";
+import Button from "../components/Button";
 
 function TelaJogo() {
   const acertoSound = useSound("acerto");
@@ -73,10 +74,18 @@ function TelaJogo() {
 
   return (
     <Background>
+      {/* Botão voltar no canto */}
+      <Button
+        onClick={() => navigate(-1)}
+        className="absolute w-20 h-10 p-0 bg-blue-500 text-white text-xl font-bold border-2 border-black flex items-center justify-center"
+      >
+        ←
+      </Button>
+
       <div className="flex flex-col items-center justify-center">
         <Texto>{localStorage.getItem("categoria")}</Texto>
-
         <Forca errors={errors} />
+
         {/* Palavra */}
         <div className="flex gap-2 space-x-2 justify-center items-center">
           {word.map((letter, i) => {
