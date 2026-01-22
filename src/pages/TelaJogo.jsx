@@ -87,19 +87,23 @@ function TelaJogo() {
         <Forca errors={errors} />
 
         {/* Palavra */}
-        <div className="flex flex-wrap gap-2 justify-center mt-5">
-          {word.map((letter, i) => {
-            // espaço ou traço vira "gap" visual
-            if (letter === " " || letter === "-") {
-              return <div key={i} className="w-12" />;
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-4 mt-5">
+          {rawWord.split(/(\s|-)/).map((part, index) => {
+            // espaço ou traço → quebra de grupo
+            if (part === " " || part === "-") {
+              return <div key={index} className="w-12" />;
             }
 
             return (
-              <LetterBox
-                key={i}
-                letter={letter}
-                isRevealed={lettersInWord.includes(normalizeText(letter))}
-              />
+              <div key={index} className="flex gap-2">
+                {part.split("").map((letter, i) => (
+                  <LetterBox
+                    key={i}
+                    letter={letter}
+                    isRevealed={lettersInWord.includes(normalizeText(letter))}
+                  />
+                ))}
+              </div>
             );
           })}
         </div>
