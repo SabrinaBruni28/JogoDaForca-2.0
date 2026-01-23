@@ -10,6 +10,7 @@ import TelaJogo from "./pages/TelaJogo.jsx";
 import TelaWin from "./pages/TelaWin.jsx";
 import TelaGameOver from "./pages/TelaGameOver.jsx";
 import TelaLinguagem from "./pages/TelaLinguagem.jsx";
+import TelaEscolhaPalavra from "./pages/TelaEscolhaPalavra.jsx";
 
 const router = createHashRouter([
   {
@@ -35,6 +36,10 @@ const router = createHashRouter([
   {
     path: "/linguagem",
     element: <TelaLinguagem />,
+  },
+  {
+    path: "/escolhapalavra",
+    element: <TelaEscolhaPalavra />,
   }
 ]);
 

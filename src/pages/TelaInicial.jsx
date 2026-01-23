@@ -23,6 +23,9 @@ function TelaInicial() {
         <Button onClick={() => navigate("/linguagem")}>
           Definir Linguagem
         </Button>
+        <Button onClick={() => navigate("/escolhapalavra")}>
+          Escolher Palavra
+        </Button>
       </div>
     </Background>
   );
