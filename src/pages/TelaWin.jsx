@@ -16,7 +16,7 @@ function TelaWin() {
   const navigate = useNavigate();
 
   const handleStartGame = () => {
-    navigate("/categoria");
+    navigate(-2);
   };
 
   return (

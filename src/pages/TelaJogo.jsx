@@ -7,6 +7,7 @@ import Texto from "../components/Texto";
 import useSound from "../hooks/useSound";
 import Forca from "../components/Forca";
 import Button from "../components/Button";
+import ButtonVoltar from "../components/ButtonVoltar";
 
 function TelaJogo() {
   const acertoSound = useSound("acerto");
@@ -74,13 +75,7 @@ function TelaJogo() {
 
   return (
     <Background>
-      {/* Botão voltar no canto */}
-      <Button
-        onClick={() => navigate(-1)}
-        className="absolute w-20 h-10 p-0 bg-blue-500 text-white text-xl font-bold border-2 border-black flex items-center justify-center"
-      >
-        ←
-      </Button>
+      <ButtonVoltar />
 
       <div className="flex flex-col items-center justify-center">
         <Texto>{localStorage.getItem("categoria")}</Texto>

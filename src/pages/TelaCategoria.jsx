@@ -1,11 +1,12 @@
 import Background from "../components/Background";
 import Button from "../components/Button";
+import ButtonVoltar from "../components/ButtonVoltar";
 import Title from "../components/Title";
 import useWord from "../hooks/useWordFetcher";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BASE_API = "https://sabrinabruni28.github.io/forca-api/";
+const BASE_API = `https://sabrinabruni28.github.io/forca-api/${localStorage.getItem("linguagem")}/`;
 
 function TelaCategoria() {
   const { fetchWord, loading } = useWord();
@@ -36,13 +37,7 @@ function TelaCategoria() {
 
   return (
     <Background>
-      {/* Botão voltar */}
-      <Button
-        onClick={() => navigate("/")}
-        className="p-1 w-20 h-10 bg-blue-500 text-white text-xl font-bold rounded hover:bg-blue-600 border-2 border-black"
-      >
-        ←
-      </Button>
+      <ButtonVoltar voltar="/" />
 
       <div className="flex flex-col items-center justify-center space-y-10">
         <Title>Categoria</Title>

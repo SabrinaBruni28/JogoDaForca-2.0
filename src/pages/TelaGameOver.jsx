@@ -16,7 +16,7 @@ function TelaGameOver() {
   const navigate = useNavigate();
 
   const handleStartGame = () => {
-    navigate("/categoria");
+    navigate(-2);
   };
 
   return (
