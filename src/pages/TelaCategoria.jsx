@@ -6,13 +6,16 @@ import useWord from "../hooks/useWordFetcher";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BASE_API = `https://sabrinabruni28.github.io/forca-api/${localStorage.getItem("linguagem")}/`;
-
 function TelaCategoria() {
   const { fetchWord, loading } = useWord();
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
+  const [linguagem, setLinguagem] = useState(
+    localStorage.getItem("linguagem")
+  );
+
+  const BASE_API = `https://sabrinabruni28.github.io/forca-api/${linguagem}/`;
 
   useEffect(() => {
     async function loadCategories() {
@@ -22,7 +25,7 @@ function TelaCategoria() {
     }
 
     loadCategories();
-  }, []);
+  }, [BASE_API]);
 
   async function handleSelectCategory(category) {
     const word = await fetchWord(`${BASE_API}${category.file}`);
@@ -42,7 +45,6 @@ function TelaCategoria() {
       <div className="flex flex-col items-center justify-center space-y-10">
         <Title>Categoria</Title>
 
-        {/* Lista de categorias */}
         <div className="flex flex-wrap justify-center gap-4 mt-10">
           {categories.map((cat) => (
             <Button

@@ -9,6 +9,7 @@ const BASE_API = "https://sabrinabruni28.github.io/forca-api/";
 
 function TelaLinguagem() {
   const [linguagens, setLinguagens] = useState([]);
+  const [linguagemSelecionada, setLinguagemSelecionada] = useState(null);
 
   useEffect(() => {
     async function loadLinguagens() {
@@ -17,11 +18,17 @@ function TelaLinguagem() {
       setLinguagens(data.linguagens);
     }
 
+    const linguagemSalva = localStorage.getItem("linguagem");
+    if (linguagemSalva) {
+      setLinguagemSelecionada(linguagemSalva);
+    }
+
     loadLinguagens();
   }, []);
 
-  async function handleSelectLinguagem(linguagem) {
+  function handleSelectLinguagem(linguagem) {
     localStorage.setItem("linguagem", linguagem.key);
+    setLinguagemSelecionada(linguagem.key);
   }
 
   return (
@@ -39,7 +46,7 @@ function TelaLinguagem() {
               onClick={() => handleSelectLinguagem(linguagem)}
             >
               {linguagem.name}
-              {localStorage.getItem("linguagem") === linguagem.key && <Check />}
+              {linguagemSelecionada === linguagem.key && <Check />}
             </Button>
           ))}
         </div>

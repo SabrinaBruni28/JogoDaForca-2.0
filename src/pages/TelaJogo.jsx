@@ -15,7 +15,7 @@ function TelaJogo() {
 
   const rawWord = localStorage.getItem("palavra");
   const word = rawWord.split("");
-  const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
 
   const [lettersInWord, setLettersInWord] = useState([]);
   const [errors, setErrors] = useState(0);
