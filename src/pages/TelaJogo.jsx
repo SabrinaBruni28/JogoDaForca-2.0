@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import Texto from "../components/Texto";
 import useSound from "../hooks/useSound";
 import Forca from "../components/Forca";
-import Button from "../components/Button";
 import ButtonVoltar from "../components/ButtonVoltar";
 
 function TelaJogo() {
@@ -14,7 +13,6 @@ function TelaJogo() {
   const erroSound = useSound("error");
 
   const rawWord = localStorage.getItem("palavra");
-  const word = rawWord.split("");
   const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890".split("");
 
   const [lettersInWord, setLettersInWord] = useState([]);
@@ -54,10 +52,15 @@ function TelaJogo() {
     return normalizedWord.includes(letter);
   }
 
+  function isLetter(char) {
+    return /[A-Za-zÀ-ÿ]/.test(char);
+  }
+
   function allLettersRevealed() {
-    return word
-      .filter((letter) => /[A-Za-zÀ-ÿ]/.test(letter))
-      .every((letter) => lettersInWord.includes(normalizeText(letter)));
+    return rawWord
+      .split("")
+      .filter((char) => isLetter(char))
+      .every((char) => lettersInWord.includes(normalizeText(char)));
   }
 
   function allLetterSelected() {
@@ -83,21 +86,28 @@ function TelaJogo() {
 
         {/* Palavra */}
         <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mt-5 max-w-full">
-          {rawWord.split(/(\s|-)/).map((part, index) => {
-            // espaço ou traço → apenas espaçamento
-            if (part === " " || part === "-") {
+          {rawWord.split(/(\s)/).map((part, index) => {
+            // espaço → só espaçamento
+            if (part === " ") {
               return <div key={index} className="w-6" />;
             }
 
             return (
               <div key={index} className="flex gap-2 shrink-0">
-                {part.split("").map((letter, i) => (
-                  <LetterBox
-                    key={i}
-                    letter={letter}
-                    isRevealed={lettersInWord.includes(normalizeText(letter))}
-                  />
-                ))}
+                {part.split("").map((char, i) => {
+                  const isCharLetter = isLetter(char);
+
+                  return (
+                    <LetterBox
+                      key={i}
+                      letter={char}
+                      isRevealed={
+                        !isCharLetter ||
+                        lettersInWord.includes(normalizeText(char))
+                      }
+                    />
+                  );
+                })}
               </div>
             );
           })}

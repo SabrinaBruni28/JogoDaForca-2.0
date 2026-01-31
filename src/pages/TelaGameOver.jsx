@@ -5,6 +5,7 @@ import Texto from "../components/Texto";
 import Title from "../components/Title";
 import { useEffect, useRef } from "react";
 import useSound from "../hooks/useSound";
+import TextoPequeno from "../components/TextoPequeno";
 
 function TelaGameOver() {
   const gameOverSound = useSound("game_over");
@@ -24,7 +25,8 @@ function TelaGameOver() {
       <div className="flex p-12 flex-col items-center justify-center space-y-10">
         <Texto>Game Over! Você perdeu!</Texto>
         <Title>💀</Title>
-        <Texto>A palavra era: {localStorage.getItem("palavra")}</Texto>
+        <Texto>A palavra era:</Texto>
+        <TextoPequeno>{localStorage.getItem("palavra")}</TextoPequeno>
         <Button onClick={handleStartGame}>Jogar Novamente</Button>
       </div>
     </Background>
