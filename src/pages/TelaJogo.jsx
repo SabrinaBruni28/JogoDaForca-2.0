@@ -52,14 +52,14 @@ function TelaJogo() {
     return normalizedWord.includes(letter);
   }
 
-  function isLetter(char) {
-    return /[A-Za-zÀ-ÿ]/.test(char);
+  function isLetterOrNumber(char) {
+    return /\p{L}|\p{N}/u.test(char);
   }
 
   function allLettersRevealed() {
     return rawWord
       .split("")
-      .filter((char) => isLetter(char))
+      .filter((char) => isLetterOrNumber(char))
       .every((char) => lettersInWord.includes(normalizeText(char)));
   }
 
@@ -95,7 +95,7 @@ function TelaJogo() {
             return (
               <div key={index} className="flex gap-2 shrink-0">
                 {part.split("").map((char, i) => {
-                  const isCharLetter = isLetter(char);
+                  const isCharLetter = isLetterOrNumber(char);
 
                   return (
                     <LetterBox

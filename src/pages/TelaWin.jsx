@@ -5,7 +5,6 @@ import Texto from "../components/Texto";
 import Title from "../components/Title";
 import { useEffect, useRef } from "react";
 import useSound from "../hooks/useSound";
-import TextoPequeno from "../components/TextoPequeno";
 
 function TelaWin() {
   const winSound = useSound("winning");
@@ -26,7 +25,7 @@ function TelaWin() {
         <Texto>Parabéns! Você venceu!</Texto>
         <Title>🎉🏆🎉</Title>
         <Texto>A palavra era:</Texto>
-        <TextoPequeno>{localStorage.getItem("palavra")}</TextoPequeno>
+        <Texto>{localStorage.getItem("palavra")}</Texto>
         <Button onClick={handleStartGame}>Jogar Novamente</Button>
       </div>
     </Background>
