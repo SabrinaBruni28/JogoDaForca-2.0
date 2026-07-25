@@ -1,16 +1,14 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import "./index.css";
-
 import { createHashRouter, RouterProvider } from "react-router-dom";
-
-import TelaInicial from "./pages/TelaInicial.jsx";
+import TelaEscolhaPalavra from "./pages/TelaEscolhaPalavra.jsx";
 import TelaCategoria from "./pages/TelaCategoria.jsx";
+import TelaGameOver from "./pages/TelaGameOver.jsx";
+import TelaInicial from "./pages/TelaInicial.jsx";
+import TelaIdioma from "./pages/TelaIdioma.jsx";
+import { createRoot } from "react-dom/client";
 import TelaJogo from "./pages/TelaJogo.jsx";
 import TelaWin from "./pages/TelaWin.jsx";
-import TelaGameOver from "./pages/TelaGameOver.jsx";
-import TelaLinguagem from "./pages/TelaLinguagem.jsx";
-import TelaEscolhaPalavra from "./pages/TelaEscolhaPalavra.jsx";
+import { StrictMode } from "react";
+import "./index.css";
 
 const router = createHashRouter([
   {
@@ -34,8 +32,8 @@ const router = createHashRouter([
     element: <TelaGameOver />,
   },
   {
-    path: "/linguagem",
-    element: <TelaLinguagem />,
+    path: "/idioma",
+    element: <TelaIdioma />,
   },
   {
     path: "/escolhapalavra",

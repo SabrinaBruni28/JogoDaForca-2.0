@@ -1,21 +1,19 @@
-import Background from "../components/Background";
-import Button from "../components/Button";
 import ButtonVoltar from "../components/ButtonVoltar";
-import Title from "../components/Title";
+import Background from "../components/Background";
+import { useNavigate } from "react-router-dom";
 import useWord from "../hooks/useWordFetcher";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import Title from "../components/Title";
 
 function TelaCategoria() {
   const { fetchWord, loading } = useWord();
   const navigate = useNavigate();
 
   const [categories, setCategories] = useState([]);
-  const [linguagem, setLinguagem] = useState(
-    localStorage.getItem("linguagem")
-  );
+  const [idioma, setIdioma] = useState(localStorage.getItem("idioma"));
 
-  const BASE_API = `https://sabrinabruni28.github.io/forca-api/${linguagem}/`;
+  const BASE_API = `https://sabrinabruni28.github.io/forca-api/${idioma}/`;
 
   useEffect(() => {
     async function loadCategories() {

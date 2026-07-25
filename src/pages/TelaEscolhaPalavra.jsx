@@ -1,10 +1,10 @@
-import Background from "../components/Background";
-import Button from "../components/Button";
 import ButtonVoltar from "../components/ButtonVoltar";
-import Texto from "../components/Texto";
-import { useState } from "react";
+import Background from "../components/Background";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
+import Texto from "../components/Texto";
 import Input from "../components/Input";
+import { useState } from "react";
 
 function TelaEscolhaPalavra() {
   const navigate = useNavigate();

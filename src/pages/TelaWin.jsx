@@ -1,10 +1,10 @@
 import Background from "../components/Background";
-import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
-import Texto from "../components/Texto";
-import Title from "../components/Title";
-import { useEffect, useRef } from "react";
+import Button from "../components/Button";
 import useSound from "../hooks/useSound";
+import Title from "../components/Title";
+import Texto from "../components/Texto";
+import { useEffect } from "react";
 
 function TelaWin() {
   const winSound = useSound("winning");

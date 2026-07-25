@@ -2,7 +2,9 @@ import { PersonStanding } from "lucide-react";
 
 function Background({ children }) {
   const people = Array.from({ length: 15 });
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(
+    "",
+  );
 
   return (
     <div className="relative w-screen min-h-screen bg-yellow-300 overflow-hidden p-2">

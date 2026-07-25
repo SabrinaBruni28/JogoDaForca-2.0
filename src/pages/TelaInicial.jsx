@@ -1,8 +1,8 @@
-import { use, useEffect } from "react";
 import Background from "../components/Background";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Title from "../components/Title";
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 function TelaInicial() {
   const navigate = useNavigate();
@@ -11,8 +11,8 @@ function TelaInicial() {
   };
 
   useEffect(() => {
-    if (localStorage.getItem("linguagem")) return;
-    localStorage.setItem("linguagem", "portugues");
+    if (localStorage.getItem("idioma")) return;
+    localStorage.setItem("idioma", "portugues");
   }, []);
 
   return (
@@ -20,9 +20,7 @@ function TelaInicial() {
       <div className="flex p-12 flex-col items-center justify-center space-y-10">
         <Title>Jogo da Forca</Title>
         <Button onClick={handleStartGame}>Iniciar Jogo</Button>
-        <Button onClick={() => navigate("/linguagem")}>
-          Definir Linguagem
-        </Button>
+        <Button onClick={() => navigate("/idioma")}>Definir Idioma</Button>
         <Button onClick={() => navigate("/escolhapalavra")}>
           Escolher Palavra
         </Button>

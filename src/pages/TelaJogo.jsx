@@ -1,12 +1,12 @@
-import Background from "../components/Background";
-import LetterBox from "../components/LetterBox";
-import OptionBox from "../components/OptionBox";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Texto from "../components/Texto";
-import useSound from "../hooks/useSound";
-import Forca from "../components/Forca";
 import ButtonVoltar from "../components/ButtonVoltar";
+import Background from "../components/Background";
+import OptionBox from "../components/OptionBox";
+import LetterBox from "../components/LetterBox";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import useSound from "../hooks/useSound";
+import Texto from "../components/Texto";
+import Forca from "../components/Forca";
 
 function TelaJogo() {
   const acertoSound = useSound("acerto");

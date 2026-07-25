@@ -1,6 +1,6 @@
-import Button from "./Button";
-import { MoveLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { MoveLeft } from "lucide-react";
+import Button from "./Button";
 
 function ButtonVoltar({ voltar = -1 }) {
   const navigate = useNavigate();
