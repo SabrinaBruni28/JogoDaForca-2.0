@@ -7,7 +7,7 @@ function Background({ children }) {
   );
 
   return (
-    <div className="relative w-screen min-h-screen bg-yellow-300 overflow-hidden p-2">
+    <div className="relative w-full min-h-screen bg-yellow-300 overflow-hidden p-2">
       {/* Pessoas */}
       {people.map((_, i) => (
         <PersonStanding

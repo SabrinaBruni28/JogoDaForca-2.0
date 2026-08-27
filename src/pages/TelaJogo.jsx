@@ -30,11 +30,11 @@ function TelaJogo() {
   const navigate = useNavigate();
 
   const handleWinGame = () => {
-    navigate("/win");
+    navigate("/win", { replace: true });
   };
 
   function handleLoseGame() {
-    navigate("/gameover");
+    navigate("/gameover", { replace: true });
   }
 
   function handleSelectLetter(letter) {
@@ -85,7 +85,7 @@ function TelaJogo() {
         <Forca errors={errors} />
 
         {/* Palavra */}
-        <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4 mt-5 max-w-full">
+        <div className="flex flex-wrap justify-center items-center gap-4 mt-5 max-w-full">
           {rawWord.split(/(\s)/).map((part, index) => {
             // espaço → só espaçamento
             if (part === " ") {
@@ -93,7 +93,7 @@ function TelaJogo() {
             }
 
             return (
-              <div key={index} className="flex gap-2 shrink-0">
+              <div key={index} className="flex gap-2">
                 {part.split("").map((char, i) => {
                   const isCharLetter = isLetterOrNumber(char);
 
@@ -114,7 +114,7 @@ function TelaJogo() {
         </div>
 
         {/* Alfabeto */}
-        <div className="flex flex-wrap justify-center gap-4 mt-10">
+        <div className="flex flex-wrap justify-center p-4 gap-4 mt-10">
           {alfabeto.map((letter, i) => {
             const wasSelected = lettersInWord.includes(letter);
             const isCorrect = letterInWord(letter);

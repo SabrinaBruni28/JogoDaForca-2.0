@@ -15,18 +15,19 @@ function TelaGameOver() {
 
   const navigate = useNavigate();
 
-  const handleStartGame = () => {
-    navigate(-2);
-  };
-
   return (
     <Background>
-      <div className="flex p-12 flex-col items-center justify-center space-y-10">
+      <div className="flex py-10 flex-col items-center justify-center space-y-8">
         <Texto>Game Over! Você perdeu!</Texto>
         <Title>💀</Title>
         <Texto>A palavra era:</Texto>
         <Texto>{localStorage.getItem("palavra")}</Texto>
-        <Button onClick={handleStartGame}>Jogar Novamente</Button>
+        <div className="items-center justify-center space-x-4 p-4">
+          <Button onClick={() => navigate(-1)}>
+            Jogar Novamente
+          </Button>
+          <Button onClick={() => navigate("/", { replace: true })}>Menu</Button>
+        </div>
       </div>
     </Background>
   );

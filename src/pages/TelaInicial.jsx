@@ -17,12 +17,12 @@ function TelaInicial() {
 
   return (
     <Background>
-      <div className="flex p-12 flex-col items-center justify-center space-y-10">
+      <div className="flex py-8 flex-col items-center justify-center space-y-8">
         <Title>Jogo da Forca</Title>
         <Button onClick={handleStartGame}>Iniciar Jogo</Button>
-        <Button onClick={() => navigate("/idioma")}>Definir Idioma</Button>
-        <Button onClick={() => navigate("/escolhapalavra")}>
-          Escolher Palavra
+        <Button onClick={() => navigate("/idioma")}>Selecionar Idioma</Button>
+        <Button onClick={() => navigate("/definirforca")}>
+          Definir Forca
         </Button>
       </div>
     </Background>

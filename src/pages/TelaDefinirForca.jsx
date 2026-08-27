@@ -2,11 +2,12 @@ import ButtonVoltar from "../components/ButtonVoltar";
 import Background from "../components/Background";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
+import Title from "../components/Title";
 import Texto from "../components/Texto";
 import Input from "../components/Input";
 import { useState } from "react";
 
-function TelaEscolhaPalavra() {
+function TelaDefinirForca() {
   const navigate = useNavigate();
 
   const [categoria, setCategoria] = useState("");
@@ -25,7 +26,8 @@ function TelaEscolhaPalavra() {
     <Background>
       <ButtonVoltar voltar="/" />
 
-      <div className="flex flex-col items-center justify-center space-y-5 p-10">
+      <div className="flex flex-col items-center justify-center space-y-5 py-8">
+        <Title>Definir Forca</Title>
         <Texto>Categoria</Texto>
         <Input
           placeholder="Digite a categoria"
@@ -46,4 +48,4 @@ function TelaEscolhaPalavra() {
   );
 }
 
-export default TelaEscolhaPalavra;
+export default TelaDefinirForca;

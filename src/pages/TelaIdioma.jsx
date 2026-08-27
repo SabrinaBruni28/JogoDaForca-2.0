@@ -3,12 +3,13 @@ import Background from "../components/Background";
 import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import Title from "../components/Title";
+import Texto from "../components/Texto";
 import { Check } from "lucide-react";
 
 const BASE_API = "https://sabrinabruni28.github.io/forca-api/";
 
 function TelaIdioma() {
-  const [idiomas, setIdiomas] = useState([]);
+  const [idiomas, setIdiomas] = useState(null);
   const [idiomaSelecionada, setIdiomaSelecionada] = useState(null);
 
   useEffect(() => {
@@ -35,25 +36,29 @@ function TelaIdioma() {
     <Background>
       <ButtonVoltar voltar="/" />
 
-      <div className="flex flex-col items-center justify-center space-y-10">
+      <div className="flex flex-col py-8 items-center justify-center space-y-8">
         <Title>Idiomas</Title>
 
         {/* Lista de idiomas */}
-        <div className="flex flex-wrap justify-center gap-4 mt-10">
-          {idiomas?.length > 0 ? (
-            idiomas.map((idioma) => (
-              <Button
-                key={idioma.key}
-                onClick={() => handleSelectIdioma(idioma)}
-              >
-                {idioma.name}
-                {idiomaSelecionada === idioma.key && <Check />}
-              </Button>
-            ))
-          ) : (
-            <p>Nenhuma opção de idioma</p>
-          )}
-        </div>
+        {idiomas === null ? (
+          <Texto>Carregando...</Texto>
+        ) : (
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            {idiomas?.length > 0 ? (
+              idiomas.map((idioma) => (
+                <Button
+                  key={idioma.key}
+                  onClick={() => handleSelectIdioma(idioma)}
+                >
+                  {idioma.name}
+                  {idiomaSelecionada === idioma.key && <Check />}
+                </Button>
+              ))
+            ) : (
+              <p>Nenhuma opção de idioma</p>
+            )}
+          </div>
+        )}
       </div>
     </Background>
   );

@@ -1,5 +1,5 @@
 import { createHashRouter, RouterProvider } from "react-router-dom";
-import TelaEscolhaPalavra from "./pages/TelaEscolhaPalavra.jsx";
+import TelaDefinirForca from "./pages/TelaDefinirForca.jsx";
 import TelaCategoria from "./pages/TelaCategoria.jsx";
 import TelaGameOver from "./pages/TelaGameOver.jsx";
 import TelaInicial from "./pages/TelaInicial.jsx";
@@ -36,9 +36,9 @@ const router = createHashRouter([
     element: <TelaIdioma />,
   },
   {
-    path: "/escolhapalavra",
-    element: <TelaEscolhaPalavra />,
-  }
+    path: "/definirforca",
+    element: <TelaDefinirForca />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
